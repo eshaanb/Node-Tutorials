@@ -75,12 +75,34 @@ stream.end('hello\n')*/
 
 //program 10 - html stream
 
-var trumpet = require('trumpet')
-var fs = require('fs')
-var through = require('through')
-
+/*
 var trumpet = require('trumpet')
 var through = require('through')
 var tr = trumpet()
 
-process.stdin.pipe()
+var selector = tr.select('.loud').createStream()
+
+process.stdin.pipe(selector).pipe(through(function(buf)) {
+	this.queue(buf.toString().toUpperCase())
+}).pipe(process.stdout)*/
+
+//program 11 - duplexer (spawn child process then return stdin + stdout)
+
+/*
+var spawn = require('child_process').spawn
+var duplex = require('duplexer')
+
+module.exports = function(cmd, args) {
+	var child = spawn(cmd, args)
+	return duplex(child.stdin, child.stdout)
+}*/
+
+//program 12 - duplexer redux
+
+var duplex = require('duplexer')
+
+ module.exports = function (counter) {
+	return duplexer.(
+     // return a duplex stream to capture countries on the writable side
+     // and pass through `counter` on the readable side
+ };
