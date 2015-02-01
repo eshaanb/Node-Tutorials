@@ -39,4 +39,30 @@ function getShortMessages(messages) {
 }
 module.exports = getShortMessages*/
 
-//program 5 - 
+//program 5 - write a function that takes a list of users and returns a function
+// which returns true if all supplied users exist in the original list of users
+//SOME is like an ANY function for an array
+/*
+function checkUsersValid(goodUsers) {
+	return function(submittedUsers) {
+    	return submittedUsers.every(function(submittedUser) {
+    		return goodUsers.some(function(goodUser) {
+    			return goodUser.id == submittedUser.id
+    		})
+    	})
+  	}
+}
+    
+module.exports = checkUsersValid*/
+
+//program 6 - given an array of strings return an object with a count of each one
+
+function countWords(inputWords) {
+	inputWords.reduce(function() {
+		
+	})
+}
+
+module.exports = countWords
+
+
