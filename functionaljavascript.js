@@ -56,13 +56,42 @@ function checkUsersValid(goodUsers) {
 module.exports = checkUsersValid*/
 
 //program 6 - given an array of strings return an object with a count of each one
-
+/*
 function countWords(inputWords) {
-	inputWords.reduce(function() {
-		
-	})
+	return inputWords.reduce(function(reducedObj, word) {
+		if (reducedObj[word] == null) {
+			reducedObj[word] = 0
+		}
+		reducedObj[word]++
+		return reducedObj
+	}, {}) //initial reduced obj 
 }
 
 module.exports = countWords
 
+var inputWords = ['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian']
+countWords(inputWords)*/
+
+//program 7 - write a recursive function that will do reduce with an initial value
+/*
+function reduce(arr, fn, initial) {
+	var idx = 0
+	var returned = recur(idx, initial, arr, fn)
+	return returned
+}
+
+function recur(idx, initial, arr, fn) {
+	if (idx == arr.length) {
+		return initial
+	}
+	initial = fn(initial, arr[idx], idx, arr)
+	idx++
+	return recur(idx, initial, arr, fn)
+}
+
+module.exports = reduce
+
+/*reduce([0,1,2], function(prev, curr, index, arr) {
+	return prev + curr
+}, 0)*/
 
