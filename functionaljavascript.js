@@ -95,3 +95,78 @@ module.exports = reduce
 	return prev + curr
 }, 0)*/
 
+//program 8 - write a function duckCount that returns the number of args passed to it which have a property quack
+
+/*function duckCount() {
+	return Array.prototype.slice.call(arguments).reduce(function(reducedObj, obj) {
+		// console.log("checking: "+obj.toString())
+		if ((Object.getPrototypeOf(obj) == Object.prototype && obj.hasOwnProperty('quack')) || Object.prototype.hasOwnProperty.call(obj, 'quack')) {
+			reducedObj++
+		}
+		return reducedObj
+	}, 0)
+}
+
+// var notDuck = Object.create({quack: true})
+// var duck = {quack: true}
+//console.log(duckCount(duck, notDuck))
+module.exports = duckCount*/
+
+//program 9 - write a logger function that prepends the given tag to the input and logs it
+
+/*var slice = Array.prototype.slice
+var join = Array.prototype.join
+
+function logger(namespace) {
+	return function() {
+		console.log(namespace, slice.call(arguments).join(" "))
+	}
+}
+
+// var warn = logger("warn")
+
+// console.log(warn('hello', 'hi'))
+
+module.exports = logger*/
+
+//problem 10 - implement array.map using array.reduce
+/*
+module.exports = function arrayMap(arr, fn) {
+	return arr.reduce(function(endArray, obj) {
+		endArray.push(fn(obj))
+		return endArray
+	}, [])
+}
+
+// console.log(module.exports([1, 2, 3, 4, 5], function(item) {
+	// return item * 2
+// }))*/
+
+//problem 11 - create a spy function that keeps track of how many times a function is called
+
+/*function Spy(targetObj, methodName) {
+	var count = {count : 0}
+	var oldFunc = targetObj[methodName]
+	targetObj[methodName] = function() {
+		count.count++
+		return oldFunc.apply(this, arguments);
+	}
+	return count
+}
+
+module.exports = Spy*/
+
+//problem 12 - modify repeat function to be asynchronous
+
+function repeat(operation, num) {
+  setTimeout(function()) {
+	if (num <= 0) return
+	operation()
+	repeat(operation, --num)
+  }
+}
+// repeat(function() {
+	// console.log('repeating')
+// }, 10)
+
+module.exports = setImmediate(repeat)
